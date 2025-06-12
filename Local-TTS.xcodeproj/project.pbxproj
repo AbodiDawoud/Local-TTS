@@ -6,23 +6,32 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C032432C2DFB513A00158A3C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032432B2DFB513A00158A3C /* App.swift */; };
+		C03243302DFB513B00158A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C032432F2DFB513B00158A3C /* Assets.xcassets */; };
+		C032433E2DFB521F00158A3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03243392DFB521F00158A3C /* ContentView.swift */; };
+		C032433F2DFB521F00158A3C /* TTSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433B2DFB521F00158A3C /* TTSPlayer.swift */; };
+		C03243402DFB521F00158A3C /* VoicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433C2DFB521F00158A3C /* VoicePicker.swift */; };
+		C03243412DFB521F00158A3C /* SpeechConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433A2DFB521F00158A3C /* SpeechConfigView.swift */; };
+		C03243442DFB53D100158A3C /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = C03243432DFB53D100158A3C /* AlertKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		C03243282DFB513A00158A3C /* Local-TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local-TTS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C032432B2DFB513A00158A3C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		C032432F2DFB513B00158A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C03243392DFB521F00158A3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C032433A2DFB521F00158A3C /* SpeechConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechConfigView.swift; sourceTree = "<group>"; };
+		C032433B2DFB521F00158A3C /* TTSPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSPlayer.swift; sourceTree = "<group>"; };
+		C032433C2DFB521F00158A3C /* VoicePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		C032432A2DFB513A00158A3C /* Local-TTS */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Local-TTS";
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C03243252DFB513A00158A3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03243442DFB53D100158A3C /* AlertKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -32,7 +41,7 @@
 		C032431F2DFB513A00158A3C = {
 			isa = PBXGroup;
 			children = (
-				C032432A2DFB513A00158A3C /* Local-TTS */,
+				C03243362DFB515500158A3C /* Local-TTS */,
 				C03243292DFB513A00158A3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +52,27 @@
 				C03243282DFB513A00158A3C /* Local-TTS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C03243362DFB515500158A3C /* Local-TTS */ = {
+			isa = PBXGroup;
+			children = (
+				C032432F2DFB513B00158A3C /* Assets.xcassets */,
+				C032433D2DFB521F00158A3C /* Views */,
+				C032432B2DFB513A00158A3C /* App.swift */,
+			);
+			path = "Local-TTS";
+			sourceTree = "<group>";
+		};
+		C032433D2DFB521F00158A3C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C03243392DFB521F00158A3C /* ContentView.swift */,
+				C032433A2DFB521F00158A3C /* SpeechConfigView.swift */,
+				C032433C2DFB521F00158A3C /* VoicePicker.swift */,
+				C032433B2DFB521F00158A3C /* TTSPlayer.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -60,11 +90,9 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				C032432A2DFB513A00158A3C /* Local-TTS */,
-			);
 			name = "Local-TTS";
 			packageProductDependencies = (
+				C03243432DFB53D100158A3C /* AlertKit */,
 			);
 			productName = "Local-TTS";
 			productReference = C03243282DFB513A00158A3C /* Local-TTS.app */;
@@ -94,6 +122,9 @@
 			);
 			mainGroup = C032431F2DFB513A00158A3C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C03243422DFB53D100158A3C /* XCRemoteSwiftPackageReference "AlertKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = C03243292DFB513A00158A3C /* Products */;
 			projectDirPath = "";
@@ -109,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03243302DFB513B00158A3C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C032433E2DFB521F00158A3C /* ContentView.swift in Sources */,
+				C032433F2DFB521F00158A3C /* TTSPlayer.swift in Sources */,
+				C03243402DFB521F00158A3C /* VoicePicker.swift in Sources */,
+				C03243412DFB521F00158A3C /* SpeechConfigView.swift in Sources */,
+				C032432C2DFB513A00158A3C /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +290,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Text to Speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -266,6 +305,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Local-TTS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -283,11 +326,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Text to Speech";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,6 +341,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ios.Local-TTS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
@@ -326,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C03243422DFB53D100158A3C /* XCRemoteSwiftPackageReference "AlertKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparrowcode/AlertKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C03243432DFB53D100158A3C /* AlertKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C03243422DFB53D100158A3C /* XCRemoteSwiftPackageReference "AlertKit" */;
+			productName = AlertKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C03243202DFB513A00158A3C /* Project object */;
 }
