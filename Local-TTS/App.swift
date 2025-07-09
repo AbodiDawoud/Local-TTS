@@ -26,7 +26,7 @@ extension UIApplication {
 
 extension UIWindow {
     static var controller: UIViewController {
-        let key = UIWindow.value(forKey: "keyWindow") as! UIWindow
+        let key = UIApplication.shared.windowScene.keyWindow!
         return key.rootViewController!
     }
 }

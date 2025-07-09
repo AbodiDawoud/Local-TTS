@@ -49,3 +49,12 @@ extension TTSPlayer: AVSpeechSynthesizerDelegate {
         }
     }
 }
+
+
+struct UtteranceConfiguration: Equatable {
+    var rate: Float = AVSpeechUtteranceDefaultSpeechRate
+    var volume: Float = 1.0
+    var pitchMultiplier: Float = 1.0
+    
+    static var `default`: UtteranceConfiguration = .init()
+}

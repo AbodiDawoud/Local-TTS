@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BD65E6F92E1F0AC3006C35D5 /* TTSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E6F82E1F0AC3006C35D5 /* TTSPlayer.swift */; };
+		BD65E6FA2E1F0AC3006C35D5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E6F72E1F0AC3006C35D5 /* ContentView.swift */; };
+		BD65E7092E1F0AEC006C35D5 /* HeroCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E7052E1F0AEC006C35D5 /* HeroCardView.swift */; };
+		BD65E70A2E1F0AEC006C35D5 /* VoicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E7072E1F0AEC006C35D5 /* VoicePicker.swift */; };
+		BD65E70B2E1F0AEC006C35D5 /* SpeechConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E7062E1F0AEC006C35D5 /* SpeechConfigView.swift */; };
+		BD65E70C2E1F0AEC006C35D5 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD65E7042E1F0AEC006C35D5 /* CustomSlider.swift */; };
 		C032432C2DFB513A00158A3C /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032432B2DFB513A00158A3C /* App.swift */; };
 		C03243302DFB513B00158A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C032432F2DFB513B00158A3C /* Assets.xcassets */; };
-		C032433E2DFB521F00158A3C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03243392DFB521F00158A3C /* ContentView.swift */; };
-		C032433F2DFB521F00158A3C /* TTSPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433B2DFB521F00158A3C /* TTSPlayer.swift */; };
-		C03243402DFB521F00158A3C /* VoicePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433C2DFB521F00158A3C /* VoicePicker.swift */; };
-		C03243412DFB521F00158A3C /* SpeechConfigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C032433A2DFB521F00158A3C /* SpeechConfigView.swift */; };
 		C03243442DFB53D100158A3C /* AlertKit in Frameworks */ = {isa = PBXBuildFile; productRef = C03243432DFB53D100158A3C /* AlertKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BD65E6F72E1F0AC3006C35D5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BD65E6F82E1F0AC3006C35D5 /* TTSPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSPlayer.swift; sourceTree = "<group>"; };
+		BD65E7042E1F0AEC006C35D5 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
+		BD65E7052E1F0AEC006C35D5 /* HeroCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCardView.swift; sourceTree = "<group>"; };
+		BD65E7062E1F0AEC006C35D5 /* SpeechConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechConfigView.swift; sourceTree = "<group>"; };
+		BD65E7072E1F0AEC006C35D5 /* VoicePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePicker.swift; sourceTree = "<group>"; };
 		C03243282DFB513A00158A3C /* Local-TTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Local-TTS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C032432B2DFB513A00158A3C /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		C032432F2DFB513B00158A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		C03243392DFB521F00158A3C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C032433A2DFB521F00158A3C /* SpeechConfigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechConfigView.swift; sourceTree = "<group>"; };
-		C032433B2DFB521F00158A3C /* TTSPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSPlayer.swift; sourceTree = "<group>"; };
-		C032433C2DFB521F00158A3C /* VoicePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +42,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BD65E7082E1F0AEC006C35D5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BD65E7042E1F0AEC006C35D5 /* CustomSlider.swift */,
+				BD65E7052E1F0AEC006C35D5 /* HeroCardView.swift */,
+				BD65E7062E1F0AEC006C35D5 /* SpeechConfigView.swift */,
+				BD65E7072E1F0AEC006C35D5 /* VoicePicker.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C032431F2DFB513A00158A3C = {
 			isa = PBXGroup;
 			children = (
@@ -58,21 +73,12 @@
 			isa = PBXGroup;
 			children = (
 				C032432F2DFB513B00158A3C /* Assets.xcassets */,
-				C032433D2DFB521F00158A3C /* Views */,
+				BD65E7082E1F0AEC006C35D5 /* Views */,
+				BD65E6F82E1F0AC3006C35D5 /* TTSPlayer.swift */,
+				BD65E6F72E1F0AC3006C35D5 /* ContentView.swift */,
 				C032432B2DFB513A00158A3C /* App.swift */,
 			);
 			path = "Local-TTS";
-			sourceTree = "<group>";
-		};
-		C032433D2DFB521F00158A3C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C03243392DFB521F00158A3C /* ContentView.swift */,
-				C032433A2DFB521F00158A3C /* SpeechConfigView.swift */,
-				C032433C2DFB521F00158A3C /* VoicePicker.swift */,
-				C032433B2DFB521F00158A3C /* TTSPlayer.swift */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,10 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C032433E2DFB521F00158A3C /* ContentView.swift in Sources */,
-				C032433F2DFB521F00158A3C /* TTSPlayer.swift in Sources */,
-				C03243402DFB521F00158A3C /* VoicePicker.swift in Sources */,
-				C03243412DFB521F00158A3C /* SpeechConfigView.swift in Sources */,
+				BD65E6F92E1F0AC3006C35D5 /* TTSPlayer.swift in Sources */,
+				BD65E7092E1F0AEC006C35D5 /* HeroCardView.swift in Sources */,
+				BD65E70A2E1F0AEC006C35D5 /* VoicePicker.swift in Sources */,
+				BD65E70B2E1F0AEC006C35D5 /* SpeechConfigView.swift in Sources */,
+				BD65E70C2E1F0AEC006C35D5 /* CustomSlider.swift in Sources */,
+				BD65E6FA2E1F0AC3006C35D5 /* ContentView.swift in Sources */,
 				C032432C2DFB513A00158A3C /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,26 +16,47 @@ struct SpeechConfigView: View {
         NavigationStack {
             Form {
                 Section {
-                    HStack {
-                        Label("Rate", systemImage: "waveform.path").labelStyle(SquaredStyle(color: .pink))
-                        Slider(value: $utterance.rate, in: 0.1...1)
-                            .padding(.leading, 37)
+                    VStack(spacing: 1) {
+                        LabeledContent {
+                            Text("**\(utterance.rate, specifier: "%.1f")**")
+                        } label: {
+                            Label("Rate", systemImage: "waveform.path")
+                                .labelStyle(SquaredStyle(color: .indigo))
+                        }
+
+                        
+                        JunoSlider(sliderValue: $utterance.rate, maxSliderValue: 1, label: "")
+                            .shadow(radius: 5)
                     }
                 }
                 
                 Section {
-                    HStack {
-                        Label("Volume", systemImage: "speaker.plus.fill").labelStyle(SquaredStyle(color: .indigo))
-                        Slider(value: $utterance.volume, in: 0.1...1)
-                            .padding(.leading)
+                    VStack(spacing: 1) {
+                        LabeledContent {
+                            Text("**\(utterance.volume, specifier: "%.1f")**")
+                        } label: {
+                            Label("Volume", systemImage: "speaker.plus.fill")
+                                .labelStyle(SquaredStyle(color: .purple))
+                        }
+
+                        
+                        JunoSlider(sliderValue: $utterance.volume, maxSliderValue: 1, label: "")
+                            .shadow(radius: 5)
                     }
                 }
                 
                 Section {
-                    HStack {
-                        Label("Pitch", systemImage: "waveform.path.ecg").labelStyle(SquaredStyle(color: .orange))
-                        Slider(value: $utterance.pitchMultiplier, in: 0.2...2)
-                            .padding(.leading)
+                    VStack(spacing: 1) {
+                        LabeledContent {
+                            Text("**\(utterance.pitchMultiplier, specifier: "%.1f")**")
+                        } label: {
+                            Label("Pitch", systemImage: "waveform.path.ecg")
+                                .labelStyle(SquaredStyle(color: .orange))
+                        }
+
+                        
+                        JunoSlider(sliderValue: $utterance.pitchMultiplier, maxSliderValue: 2, label: "")
+                            .shadow(radius: 5)
                     }
                 }
                 
@@ -45,40 +66,28 @@ struct SpeechConfigView: View {
             }
             .navigationTitle("Configurations")
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarBackground(.visible, for: .navigationBar)
-            .toolbarTitleMenu {
-                Link(
-                    "Apple Documentation",
-                    destination: URL(string: "https://developer.apple.com/documentation/avfaudio/avspeechutterance")!
-                )
-                Divider()
-                Button("Reset Config", role: .destructive, action: resetConfiguration)
-            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button{
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.headline)
-                            .imageScale(.large)
-                            .foregroundStyle(.gray)
-                            .symbolRenderingMode(.hierarchical)
-                    }
+                    Button("Done", action: dismiss.callAsFunction)
+                        .tint(.gray)
+                        .fontWeight(.medium)
+                        .controlSize(.small)
+                        .buttonBorderShape(.capsule)
+                        .buttonStyle(.bordered)
                 }
             }
+            .toolbarTitleMenu {
+                Link(destination: URL(string: "https://developer.apple.com/documentation/avfaudio/avspeechutterance")!) {
+                    Label("Apple Documentation", systemImage: "applelogo")
+                }
+                Divider()
+                Button("Reset Config", systemImage: "arrow.clockwise", action: resetConfiguration)
+            }
+            .onAppear(perform: setNavigationAppearance)
             .listSectionSpacing(.compact)
-            .onAppear(perform: setSliderAppearance)
         }
-        .presentationDetents([.medium])
+        .presentationDetents([.fraction(0.7)])
     }
-    
-    func setSliderAppearance() {
-        let thumb = UIImage(systemName: "capsule.fill")!.withTintColor(.label, renderingMode: .alwaysOriginal)
-        UISlider.appearance().setThumbImage(thumb, for: .normal)
-    }
-    
 
     func randomizeUtteranceProperties() {
         // Set random values within a reasonable range
@@ -97,15 +106,14 @@ struct SpeechConfigView: View {
             utterance.pitchMultiplier = 1.0
         }
     }
-}
-
-
-struct UtteranceConfiguration: Equatable {
-    var rate: Float = AVSpeechUtteranceDefaultSpeechRate
-    var volume: Float = 1.0
-    var pitchMultiplier: Float = 1.0
     
-    static var `default`: UtteranceConfiguration = .init()
+    func setNavigationAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBackground
+        appearance.shadowColor = UIColor.systemGray4
+
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
 }
 
 
@@ -118,9 +126,13 @@ fileprivate struct SquaredStyle: LabelStyle {
                 .frame(width: 32, height: 32)
                 .foregroundStyle(.white)
                 .fontWeight(.semibold)
-                .background(color, in: .buttonBorder)
+                .background(color.gradient, in: .buttonBorder)
             
             configuration.title
         }
     }
+}
+
+#Preview {
+    SpeechConfigView(utterance: .constant(.default))
 }

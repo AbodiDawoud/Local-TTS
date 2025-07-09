@@ -19,6 +19,7 @@ struct VoicePickerView: View {
     
     private let availableLanguages: Set<String>
     @Environment(TTSPlayer.self) private var player
+    @Environment(\.dismiss) private var dimiss
     
     
     init(selectedVoice: Binding<AVSpeechSynthesisVoice>) {
@@ -69,7 +70,7 @@ struct VoicePickerView: View {
         }
         .navigationTitle("Installed Voices")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(.visible, for: .navigationBar)
+        .onAppear(perform: setNavigationAppearance)
         .searchable(
             text: $searchText,
             placement: .navigationBarDrawer(displayMode: .always)
@@ -174,6 +175,14 @@ struct VoicePickerView: View {
             URL(string: "App-prefs:")!
         )
     }
+    
+    func setNavigationAppearance() {
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = .systemBackground
+        appearance.shadowColor = UIColor.systemGray4
+
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
 }
 
 
@@ -190,10 +199,7 @@ fileprivate struct InfoView: View {
         LabeledContent {
             Text(value)
                 .font(.system(.callout, design: .rounded, weight: .medium))
-                .frame(minWidth: 60)
-                .padding(.vertical, 4)
-                .opacity(0.8)
-                .background(.regularMaterial, in: .rect(cornerRadius: 5))
+                .foregroundStyle(.gray)
         } label: {
             HStack {
                 Image(icon)

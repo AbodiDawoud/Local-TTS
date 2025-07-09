@@ -1,6 +1,6 @@
 //
-//  BuiltInTTsView.swift
-//  TikTok-TTs
+//  ContentView.swift
+//  Local-TTS
     
 
 import SwiftUI
@@ -25,7 +25,7 @@ struct ContentView: View {
             HeroCardView()
             
             Section {
-                TextField("What would you like to hear?", text: $userPrompt, axis: .vertical)
+                TextField("What would you like to hear?", text: $userPrompt.animation(), axis: .vertical)
                     .frame(minHeight: 200, alignment: .topLeading)
             } header: {
                 HStack {
@@ -42,52 +42,63 @@ struct ContentView: View {
             }
             
             Section("Actions") {
-                HStack {
-                    Spacer()
-                    Button("", systemImage: "note.text") {
-                        isFilePickerPresented.toggle()
-                    }
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+                        Button("", systemImage: "plus") {
+                            isFilePickerPresented.toggle()
+                        }
                         
-                    Spacer()
+                        
+                        Spacer()
+                        
+                        Divider()
+                        Spacer()
+                        
+                        Button("", image: .voice) {
+                            showConfigForm.toggle()
+                        }
+                        
+                        
+                        Spacer()
+                        Divider().frame(height: 50)
+                        
+                        Spacer()
+                        Button("", image: .voiceSelectionSymbol) {
+                            showVoicePicker.toggle()
+                        }.fontWeight(.light)
+                            
+                        Spacer()
+                    }
+                    .font(.title3)
+                    .labelStyle(.iconOnly)
                     
                     Divider()
-                    Spacer()
-                    
-                    Button("", systemImage:  "gearshape.arrow.triangle.2.circlepath") {
-                        showConfigForm.toggle()
-                    }
-                        
-                    Spacer()
-                    Divider()
-                    
-                    Spacer()
-                    Button("", systemImage:  "waveform.badge.microphone") {
-                        showVoicePicker.toggle()
-                    }
-                    Spacer()
                 }
-                .font(.title3.weight(.medium))
-                .symbolRenderingMode(.hierarchical)
-                .padding(.vertical, 6)
-                .buttonStyle(.plain)
-                .labelStyle(.iconOnly)
                 .listRowInsets(EdgeInsets())
-            }
-            
-            Section {
-                speakButton
                 
-                Button("Export as Audio", systemImage: "square.and.arrow.up") {
-                    saveSpeechAsAudioFile(prompt: userPrompt)
+                
+                VStack(alignment: .leading, spacing: 15) {
+                    speakButton
+                    
+                    Rectangle()
+                        .frame(height: 0.7)
+                        .foregroundStyle(
+                            LinearGradient(colors: [.clear, Color.gray.opacity(0.3), .clear], startPoint: .leading, endPoint: .trailing)
+                        )
+                    
+                    Button("Export as Audio") {
+                        saveSpeechAsAudioFile(prompt: userPrompt)
+                    }
                 }
+                .padding(.vertical, 10)
+                .disabled(promptEmpty)
+                .redacted(reason: promptEmpty ? .placeholder : .privacy)
             }
             .buttonStyle(.plain)
-            .disabled(promptEmpty)
-            .redacted(reason: promptEmpty ? .placeholder : .privacy)
-            .listSectionSpacing(19)
-            .symbolVariant(.fill)
-            .symbolRenderingMode(.hierarchical)
+            .listRowSeparator(.hidden)
         }
+        ._addingBackgroundLayer()
         .scrollDismissesKeyboard(.immediately)
         .fileImporter(isPresented: $isFilePickerPresented, allowedContentTypes: [.text], onCompletion: onImportTextFile)
         .sheet(isPresented: $showConfigForm) { SpeechConfigView(utterance: $speechUtterance) }
@@ -96,13 +107,12 @@ struct ContentView: View {
                 VoicePickerView(selectedVoice: $selectedVoice)
             }
         }
-        
     }
     
     private var speakButton: some View {
         Button(
-            player.isSpeaking ? "Pause" : player.isSpeechPaused ? "Resume" : "Speak Text",
-            systemImage: player.isSpeaking ? "pause" : player.isSpeechPaused ? "playpause" : "play"
+            player.isSpeaking ? "Pause" : player.isSpeechPaused ? "Resume" : "Play Audio"
+
         ) {
             if player.isSpeaking {
                 player.synthesizer.pauseSpeaking(at: .word)
@@ -114,6 +124,7 @@ struct ContentView: View {
                 player.speak(userPrompt, voice: selectedVoice, settings: speechUtterance)
             }
         }
+        .symbolVariant(.fill)
     }
     
     
@@ -192,48 +203,6 @@ struct ContentView: View {
     }
 }
 
-
-
-
-
-private struct HeroCardView: View {
-    private let systemIcon: String = "bubble.left.and.text.bubble.right.fill"
-    private let color: Color = .blue
-    private let iconRotation: Double = 40
-    
-    var body: some View {
-        Section {
-            HStack {
-                Image(systemName: systemIcon)
-                    .font(.system(size: 24))
-                    .foregroundStyle(color, .primary)
-                    .frame(width: 50, height: 50)
-                    .background(color.tertiary, in: .rect(cornerRadius: 12))
-            
-                
-                VStack(alignment: .leading, spacing: 0.2) {
-                    Text("Text To Speech")
-                        .font(.title.bold().smallCaps()).fontDesign(.rounded)
-                    
-                    Text("On your device")
-                        .textScale(.secondary)
-                        .foregroundStyle(.secondary)
-                }
-            }
-            .frame(maxWidth: .infinity, minHeight: 120)
-            .background {
-                color
-                    .frame(maxWidth: .infinity, maxHeight: 14)
-                    .blur(radius: 50)
-            }
-            .background(alignment: .bottomTrailing) {
-                Image(systemName: systemIcon)
-                    .font(.system(size: 270))
-                    .foregroundStyle(.gray.opacity(0.06))
-                    .rotationEffect(.degrees(iconRotation))
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
-        }
-        .listRowSeparator(.hidden, edges: .bottom)
-    }
+#Preview {
+    ContentView().environment(TTSPlayer())
 }
