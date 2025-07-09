@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/28ceb8d8-bf0b-4a20-aca5-c1a972da9585" height=130>
+  <img src="https://github.com/user-attachments/assets/bff2996f-8ed3-423d-914d-ef9bd0029ed0" height=130>
 </p>
 
 
@@ -13,5 +13,6 @@ An basic demo app for using Speech framework on iOS
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/8fc23e47-e1ab-4c26-ad49-ab0d4fb43b56" height="300">
-<img src="https://github.com/user-attachments/assets/0aa62e7c-9a6a-4d80-bfbb-9ec9a072e9d1" height="300">
+<img src="https://github.com/user-attachments/assets/7af23a34-5661-4e00-b0a7-706c4dbc8f0f" height="300">
+<img src="https://github.com/user-attachments/assets/1a905fa6-45e1-44b0-8498-b5c2b91424e8" height="300">
+<img src="https://github.com/user-attachments/assets/fd273824-6064-454f-9b08-7332082b302e" height="300">
